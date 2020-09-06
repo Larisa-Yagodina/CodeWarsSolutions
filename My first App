@@ -1,0 +1,112 @@
+import React from "react";
+import Header from './Header'
+import Footer from './Footer'
+import Button from "./Button";
+import Question from "./Goal1/Question";
+import ButtonComeTrue from "./Goal1/ButtonComeTrue";
+import Strategy from "./Goal1/Strategy"
+import Input from './Goal1/Input'
+import Line from "./Line";
+import Hello from "./Hello";
+import Result1 from "./Result1";
+import Input2 from "./Input2";
+import ThirdGoal from "./ThirdGoal";
+import RuleOne from "./Goal1/Rule1";
+import RuleTwo from "./Goal1/Rule2";
+import RuleThree from "./Goal1/Rule3";
+import PlanA1 from "./Goal1/PlanA1";
+
+const year = 2020;
+const moment = 'New Year';
+const deadline = '31.12.2020'
+const name = 'Lara';
+const goals = {
+  fir: 'vacation on Hawaii',
+  sec: 'new job',
+  thi: 'Tiffany ring',
+  tho: 'MaxMara coat',
+  fif: 'LV bag',
+}
+const question = 'What do you really want?';
+const nextQuest = 'So, what else?';
+const nextNextQuest = 'What else do you want?'
+const click = 'Click on the right! -> (There is magic button!) ';
+const quests = {
+  fir: 'That to do first?',
+}
+const  definition = 'Rule — is straight way to you goal.' 
+
+const add = {
+  fir: 'Please, give more details!',
+  sec: 'Please, imagine it!',
+  thi: 'Please, write it down.',
+  tho: 'What is it?',
+  fif: 'So, now you really need to make a plan!',
+}
+
+const note = {
+  fir: 'This rule is constant!',
+  sec: 'Be true to your rule.',
+  the: 'VERY IMPORTANT!',
+  tho: 'Dont forget to «Think BIG»',
+  fif: 'don`t forget to follow youre goal.',
+  six: 'Rules will help you to follow it.',
+  sev: 'Remember about deadline: '
+}
+
+export default function App() {
+  return (
+    <div className="App">
+      <Header personName={name}/>
+      <Line />
+      <h1>New Year Resolution</h1>
+      <Hello personName={name} />
+      <Button personName={name} /> 
+      
+      <h2>First Resolution is...</h2>
+      <Question 
+         currentMoment={moment}
+         personName={name}
+         question={question}
+         addQuestion={add}
+      />
+      <Input /> 
+      <ButtonComeTrue click={click} add={add}/>
+      <h3>Strategy and planning</h3>
+      <Strategy 
+       name={name}
+       note={note}
+       />
+      <RuleOne 
+         note={note}
+         definition={definition}
+       />
+      <RuleTwo note={note} />
+      <RuleThree 
+        year={year}
+        name={name}
+        note={note}
+      />
+      <h4>Plan A</h4>
+      <PlanA1 
+         quests={quests}
+         deadline={deadline}
+         note={note} 
+        />
+      <h2>Second Resolution is...</h2>
+      <Result1 
+          nextQuestion={nextQuest}
+          goals={goals} 
+         addQuestion={add}
+      />
+      <Input2 />
+      <h2>Third Resolution is...</h2>
+      <ThirdGoal 
+        nextNextQuest={nextNextQuest}
+        name={name}
+      />
+      <Line />
+      <Footer currentYear={year}/>
+    </div>
+  );
+}
