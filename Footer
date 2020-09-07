@@ -1,0 +1,12 @@
+import React from 'react'
+
+export default function Footer(){
+    return (
+        <div>
+            <hr/>
+            07.09.2020
+            By Larisa
+            <hr/>
+        </div>
+    )
+}
