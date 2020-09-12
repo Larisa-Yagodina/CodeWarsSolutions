@@ -1,0 +1,8 @@
+function firstNonRepeatingLetter(s) {
+  console.log(s)
+
+  let arr = s.split('')
+  let arr2 = arr.filter(el => arr.indexOf(el.toLowerCase()) === arr.lastIndexOf(el.toLowerCase()));
+  return (arr2.length === 0) ? '' : arr2[0];
+
+}
