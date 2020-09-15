@@ -1,0 +1,27 @@
+import React, {useState} from 'react'
+
+  export default function Counter (){
+
+    let [counter, setCounter] = useState(0)
+
+    const counterPlus = () => {
+        setCounter(counter += 1);
+      }
+
+     const counterMinus = () => {
+         setCounter(counter -= 1);
+     }
+
+     const reset = () => {
+        setCounter( 10)
+     }
+
+    return (
+      <div>
+          <button className='btn' onClick={counterMinus}> -1 </button>
+          {counter}
+          <button className='btn' onClick={counterPlus}> +1 </button>
+          <button className='btn' onClick={reset}> Reset </button>
+      </div>
+    )
+  }
