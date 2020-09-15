@@ -1,0 +1,30 @@
+import React, {useState} from 'react'
+
+  export default function ArrayCounter () {
+
+    const [counterArr, setCounterArr] = useState([0, 1, 2, 3, 4, 5])
+
+    const buttonPlus = (el) => {
+        const updated = [...counterArr];
+        updated[el] += 1;
+        setCounterArr(updated)
+    }
+
+    const buttonMinus = (el) => {
+        const updated = [...counterArr];
+        updated[el] -= 1;
+        setCounterArr(updated)
+    }
+
+    return (
+        <div>
+          {counterArr.map((el, index) =>
+             <div key={index}>
+               <button className="btn" onClick={() => buttonMinus(index)}> -1 </button>
+                 <span>{el}</span>
+               <button className='btn' onClick={() => buttonPlus(index)}> -1 </button>
+            </div>
+          )}
+        </div>
+    )
+  }
