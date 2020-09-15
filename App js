@@ -1,0 +1,39 @@
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+import Counter from "./Counter";
+import Header from "./Header";
+import MainMenu from "./MainMenu";
+import BottomMenu from "./BottomMenu";
+import ArrayCounter from "./ArrayCounter";
+
+const header = 'Hello, friend';
+
+const mainMenu = [
+    {title: 'Main Page', link: '/'},
+    {title: 'Next Page', link: '/next'},
+    {title: 'Contacts', link: '/contacts'},
+]
+
+const bottomMenu = [
+    {title: 'Help', link: '/help'},
+    {title: 'Q & A', link: '/qanda'},
+]
+
+function App() {
+  return (
+    <div className="App">
+        <Header hello={header} />
+        <hr />
+        {mainMenu.map( el => <MainMenu key={el.title} el={el} />)}
+        <hr />
+        <Counter />
+        <hr />
+        <ArrayCounter />
+        <hr />
+        <BottomMenu items={bottomMenu} />
+    </div>
+  );
+}
+
+export default App;
