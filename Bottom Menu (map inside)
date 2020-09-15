@@ -1,0 +1,12 @@
+import React from 'react'
+
+export default function BottomMenu (props){
+
+    const menu = props.items;
+
+    return (
+       <div>
+            {menu.map(el => <li key={el.title}>{el.title}</li>)}
+        </div>
+    )
+}
