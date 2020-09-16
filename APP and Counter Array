@@ -1,0 +1,121 @@
+________________________
+APP.JS
+________________________
+
+
+import React, {useState} from "react";
+import ListItem from "./ListItem";
+
+
+export default function App() {
+  
+const [list, setList] = useState( [1, 2, 3, 4,]) 
+  
+const counterMinusTwo = (i) => {
+  const newArr = list.map((el, index) => {
+    if (index === i){
+      return el - 2;
+    } 
+    return el;
+  })
+  setList(newArr)
+}
+
+const counterPlus = (i) => {
+  const newArr = list.map((el, index) => {
+    if (i === index){
+      return el + 1;
+    }
+    return el;
+  })
+  setList(newArr)
+}
+
+const counterPlusTwo = (i) => {
+  const newArr = list.map((el, index) => {
+    if (i === index) {
+      return el + 2
+    }
+    return el;
+  })
+  setList(newArr)
+}
+
+const counterMinus = (i) => {
+  const newArr2 = list.map((el, index) => {
+    if (i === index){
+      return el - 1;
+    } 
+    return el;
+  })
+  setList(newArr2)
+}
+
+const reset = (i) => {
+  const newArr = list.map((el, index) => {
+    if (i === index){
+      return el = 0;
+    } return el;
+  })
+  setList(newArr)
+}
+
+  return (
+    <div>
+      {list.map((el, i) => <ListItem 
+      counterMinusTwo={counterMinusTwo}
+      counterMinus={counterMinus} 
+      counterPlusTwo={counterPlusTwo}
+      counterPlus={counterPlus} 
+      reset={reset}
+      index={i} el={el} 
+      key={Math.random()} 
+      />)}
+    </div>
+  )
+}
+
+
+__________________________
+LIST.JS
+___________________________
+
+import React from 'react'
+
+export default function ListItem (props){
+
+  const counter = props.el;
+  
+  const counterPlusButton = () => {
+    props.counterPlus(props.index)
+  }
+  const counterMinusButton = () => {
+    props.counterMinus(props.index)
+  }
+
+  const counterMinusTwoButton = () => {
+    props.counterMinusTwo(props.index)
+  }
+
+  const counterPlusTwoButton = () => {
+    props.counterPlusTwo(props.index)
+  }
+
+  const resetButton = () => {
+    props.reset(props.index)
+  }
+
+  return (
+    <div>
+      <button onClick={counterMinusTwoButton}> -2 </button>
+      <button onClick={counterMinusButton}> -1 </button>
+      &nbsp; {counter} &nbsp; 
+      <button onClick={counterPlusButton}> +1 </button>
+      <button onClick={counterPlusTwoButton}> +2 </button>
+      &nbsp; &nbsp; &nbsp; 
+      <button onClick={resetButton}> ReStart </button>
+    </div>
+   )
+} 
+
+
